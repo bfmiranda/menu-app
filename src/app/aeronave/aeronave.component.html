@@ -1,0 +1,26 @@
+<h2>Lista de Aeroportos</h2>
+
+<div *ngIf="loading">Carregando...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<div class="card-container" *ngIf="!loading && !error">
+  <mat-card 
+    class="aeronave-card" 
+    *ngFor="let aeronave of aeronaves"
+    [routerLink]="['/aeronave-detalhe', aeronave._id]"
+    [queryParams]="{ id: aeronave._id }"
+        
+  >
+    <mat-card-header>
+      <mat-card-title>{{ aeronave.matricula }}</mat-card-title>
+      <mat-card-subtitle>{{ aeronave.nome_razao_social || 'N/A'  }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Fone: {{ aeronave.fone_resp || 'N/A' }}</p>
+      <p>E-mail Financeiro: {{ aeronave.email_financeiro || 'N/A' }}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<a routerLink="/"> ⬅ Back to Menu</a>
+

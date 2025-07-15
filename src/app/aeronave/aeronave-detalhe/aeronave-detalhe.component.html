@@ -1,0 +1,11 @@
+<h2>Detalhes do Aeroporto</h2>
+
+<div *ngIf="aeronave">
+  <p><strong>Nome:</strong> {{ aeronave.matricula }}</p>
+  <p><strong>País:</strong> {{ aeronave.cpf_cnpj }}</p>
+  <p><strong>Cidade:</strong> {{ aeronave.cidade_estado }}</p>
+  <p><strong>Código:</strong> {{ aeronave.ufoperador }}</p>
+</div>
+
+<a routerLink="/aeronave">⬅ Voltar para lista</a>
+ 
