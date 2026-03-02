@@ -1,0 +1,31 @@
+<h2>Lançamentos</h2>
+
+<form method="post">
+  <select name="tipo">
+    <option>RECEITA</option>
+    <option>DESPESA</option>
+    <option>TRANSFERENCIA</option>
+  </select>
+
+  <select name="categoria">
+    <option value="">-- categoria --</option>
+    <% categories.forEach(c => { %>
+      <option value="<%= c._id %>"><%= c.nome %></option>
+    <% }) %>
+  </select>
+
+  <input name="valor" type="number" step="0.01" required />
+  <input name="data" type="date" required />
+  <input name="descricao" placeholder="Descrição" />
+
+  <button>Lançar</button>
+</form>
+
+<ul>
+  <% transactions.forEach(t => { %>
+    <li>
+      <%= t.tipo %> - R$ <%= t.valor %>
+      (<%= t.categoria?.nome || '—' %>)
+    </li>
+  <% }) %>
+</ul>
