@@ -1,0 +1,14 @@
+<h2>Categorias</h2>
+
+<form method="post">
+  <input name="nome" placeholder="Nome" required />
+  <label><input type="checkbox" name="tiposPermitidos" value="RECEITA"> Receita</label>
+  <label><input type="checkbox" name="tiposPermitidos" value="DESPESA"> Despesa</label>
+  <button>Criar</button>
+</form>
+
+<ul>
+  <% categories.forEach(c => { %>
+    <li><%= c.nome %></li>
+  <% }) %>
+</ul>
